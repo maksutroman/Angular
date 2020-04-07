@@ -13,6 +13,9 @@ import { RequirementsEditComponent } from './requirements-list/requirements-edit
 
 import { EventService } from './events/event.service';
 import { RequirementService } from './requirements-list/requirements.service';
+import { EventStartComponent } from './events/event-start/event-start.component';
+import { Page404Component } from './events/page404/page404.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { RequirementService } from './requirements-list/requirements.service';
     EventItemComponent,
     EventDetailComponent,
     RequirementsListComponent,
-    RequirementsEditComponent
+    RequirementsEditComponent,
+    EventStartComponent,
+    Page404Component,
+    EventEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [EventService, RequirementService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -20,10 +20,13 @@ export class EventService {
       'Java is the best programming ...',
       'https://upload.wikimedia.org/wikipedia/uk/8/85/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Java.png',
       [new Requirement('Java', 'Java  Spring')]
-    )
+    ),
   ];
   getEvents() {
     return this.events.slice();
+  }
+  getSingleEvent(index: number) {
+    return this.events[index];
   }
   AddEvent(requiremens: Requirement[]) {
     this.requirementService.AddRequirements(requiremens);

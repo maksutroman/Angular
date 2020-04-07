@@ -5,7 +5,7 @@ export class RequirementService {
   eventUpdate = new EventEmitter<Requirement[]>();
   requirements: Requirement[] = [
     new Requirement('Java Script', 'Base knowlage of OOP'),
-    new Requirement('HTML, JS, CSS,', 'REST API')
+    new Requirement('HTML, JS, CSS,', 'REST API'),
   ];
 
   getRequirements() {
