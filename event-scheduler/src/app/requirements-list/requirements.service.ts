@@ -1,19 +1,22 @@
 import { Requirement } from './requirements-model';
-import { Injectable, ViewChild, ElementRef } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
-@Injectable()
 export class RequirementService {
+  eventUpdate = new EventEmitter<Requirement[]>();
   requirements: Requirement[] = [
     new Requirement('Java Script', 'Base knowlage of OOP'),
     new Requirement('HTML, JS, CSS,', 'REST API')
   ];
 
-  getRequirement() {
+  getRequirements() {
     return this.requirements.slice();
   }
-}
-
-export class AddRequirements {
-  @ViewChild('skillsInput', { static: false }) skillsInputRef: ElementRef;
-  @ViewChild('descInput', { static: false }) descInputRef: ElementRef;
+  onAddRequirements(requirements: Requirement) {
+    this.requirements.push(requirements);
+    this.eventUpdate.emit(this.requirements.slice());
+  }
+  AddRequirements(requirements: Requirement[]) {
+    this.requirements.push(...requirements);
+    this.eventUpdate.emit(this.requirements.slice());
+  }
 }

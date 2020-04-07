@@ -10,9 +10,9 @@ import { EventItemComponent } from './events/event-list/event-item/event-item.co
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { RequirementsListComponent } from './requirements-list/requirements-list.component';
 import { RequirementsEditComponent } from './requirements-list/requirements-edit/requirements-edit.component';
+
 import { EventService } from './events/event.service';
 import { RequirementService } from './requirements-list/requirements.service';
-import { AddRequirements } from './requirements-list/requirements.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { AddRequirements } from './requirements-list/requirements.service';
     RequirementsEditComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [EventService, RequirementService, AddRequirements],
+  providers: [EventService, RequirementService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

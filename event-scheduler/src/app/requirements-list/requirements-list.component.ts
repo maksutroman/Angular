@@ -12,10 +12,11 @@ export class RequirementsListComponent implements OnInit {
   constructor(private requirementService: RequirementService) {}
 
   ngOnInit(): void {
-    this.requirements = this.requirementService.getRequirement();
-  }
-
-  onRequirementAdded(requirement: Requirement) {
-    this.requirements.push(requirement);
+    this.requirements = this.requirementService.getRequirements();
+    this.requirementService.eventUpdate.subscribe(
+      (requirements: Requirement[]) => {
+        this.requirements = requirements;
+      }
+    );
   }
 }
