@@ -5,7 +5,7 @@ import { RequirementService } from './requirements.service';
 @Component({
   selector: 'app-requirements-list',
   templateUrl: './requirements-list.component.html',
-  styleUrls: ['./requirements-list.component.scss']
+  styleUrls: ['./requirements-list.component.scss'],
 })
 export class RequirementsListComponent implements OnInit {
   requirements: Requirement[];
@@ -18,5 +18,8 @@ export class RequirementsListComponent implements OnInit {
         this.requirements = requirements;
       }
     );
+  }
+  onEdit(index: number) {
+    this.requirementService.startEdit.next(index);
   }
 }

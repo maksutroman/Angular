@@ -5,7 +5,7 @@
 </div>
 <div class="row">
     <div class="col">
-        <button class="btn btn-success" routerLink="/requirements">Add requirements</button>
+        <button class="btn btn-success" (click)="onAddReuirements()">Add requirements</button>
         <button class="btn btn-warning">Edit</button>
         <button class="btn btn-danger">Delete</button>
     </div>
@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col">
         <ul class="list-group">
-            <li *ngFor="let requirement of event.requirement">
+            <li *ngFor="let requirement of event.requirements">
                 {{ requirement.name }} - {{ requirement.description }}
             </li>
         </ul>

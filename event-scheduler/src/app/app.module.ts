@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,7 @@ import { EventService } from './events/event.service';
 import { RequirementService } from './requirements-list/requirements.service';
 import { EventStartComponent } from './events/event-start/event-start.component';
 import { Page404Component } from './events/page404/page404.component';
-import { EventEditComponent } from './event-edit/event-edit.component';
+import { EventEditComponent } from './events/event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { EventEditComponent } from './event-edit/event-edit.component';
     Page404Component,
     EventEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [EventService, RequirementService],
   bootstrap: [AppComponent],
 })

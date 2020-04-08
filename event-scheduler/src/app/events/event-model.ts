@@ -4,17 +4,17 @@ export class Event {
   public name: string;
   public description: string;
   public image: string;
-  public requirement: Requirement[];
+  public requirements: Requirement[];
 
   constructor(
     name: string,
     description: string,
     image: string,
-    requirement: Requirement[]
+    requirements: Requirement[]
   ) {
     this.name = name;
     this.description = description;
     this.image = image;
-    this.requirement = requirement;
+    this.requirements = requirements;
   }
 }

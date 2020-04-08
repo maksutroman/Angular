@@ -23,6 +23,6 @@ export class EventDetailComponent implements OnInit {
     });
   }
   onAddReuirements() {
-    this.eventService.AddEvent(this.event.requirement);
+    this.eventService.AddEvent(this.event.requirements);
   }
 }
