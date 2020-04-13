@@ -5,9 +5,10 @@
 </div>
 <div class="row">
     <div class="col">
-        <button class="btn btn-success" (click)="onAddReuirements()">Add requirements</button>
-        <button class="btn btn-warning">Edit</button>
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-success" (click)="onAddReuirements()" routerLink="/requirements">Add
+            requirements</button>
+        <button class="btn btn-warning" (click)=onEditEvent()>Edit</button>
+        <button class="btn btn-danger" href="#" (click)="onDelete()">Delete</button>
     </div>
 </div>
 <div class="row">

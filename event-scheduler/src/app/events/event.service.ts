@@ -1,14 +1,22 @@
 import { Event } from './event-model';
 import { Requirement } from '../requirements-list/requirements-model';
 import { Injectable, EventEmitter } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import { RequirementService } from '../requirements-list/requirements.service';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class EventService {
-  constructor(private requirementService: RequirementService) {}
+  startEdit = new Subject<number>();
+  eventUpdate = new EventEmitter<Event[]>();
   eventSelected = new EventEmitter<Event>();
-  private events: Event[] = [
+  URL = 'https://eventsheduler-d8872.firebaseio.com/events.json';
+  constructor(
+    private requirementService: RequirementService,
+    private http: HttpClient
+  ) {}
+
+  private events: Event[]; /*  = [
     new Event(
       'Java Script Patterns',
       'For advanced skills students',
@@ -21,14 +29,43 @@ export class EventService {
       'https://upload.wikimedia.org/wikipedia/uk/8/85/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Java.png',
       [new Requirement('Java', 'Java  Spring')]
     ),
-  ];
+  ]; */
+
   getEvents() {
-    return this.events.slice();
+    if (this.events) return this.events.slice();
   }
+
   getSingleEvent(index: number) {
     return this.events[index];
   }
+
   AddEvent(requiremens: Requirement[]) {
     this.requirementService.AddRequirements(requiremens);
+  }
+
+  DeleteEvent(index: number) {
+    this.events.splice(index, 1);
+    this.eventUpdate.emit(this.events.slice());
+    console.log(this.events);
+  }
+
+  onSendRequirements(requirements: Requirement[]) {
+    console.log(requirements);
+    this.requirementService.AddRequirements(requirements);
+  }
+
+  updateEvents(index: number, newReq: Event) {
+    this.events[index] = newReq;
+    this.eventUpdate.next(this.events.slice());
+  }
+
+  onAddEvent(newEvent: Event) {
+    this.events.push(newEvent);
+    this.eventUpdate.emit(this.events.slice());
+  }
+
+  onAddEvents(events: Event[]) {
+    this.events = events;
+    this.eventUpdate.emit(this.events.slice());
   }
 }

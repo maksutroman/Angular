@@ -31,6 +31,20 @@ export class RequirementsEditComponent implements OnInit, OnDestroy {
     } else {
       this.requirementService.onAddRequirements(newRequirement);
     }
+    form.reset();
+    this.editMode = false;
+  }
+  onClear() {
+    this.reqForm.reset();
+    this.editMode = false;
+  }
+  onDelete() {
+    this.requirementService.deleteItem(this.editedItem);
+    this.onReset();
+    this.reqForm.reset();
+  }
+  onReset() {
+    this.editMode = false;
   }
 
   ngOnInit(): void {
@@ -51,9 +65,4 @@ export class RequirementsEditComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
-  onClear() {
-    this.editMode = false;
-  }
-  onDelete() {}
 }
