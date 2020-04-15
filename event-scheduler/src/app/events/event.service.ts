@@ -15,7 +15,7 @@ export class EventService {
     private requirementService: RequirementService,
     private http: HttpClient
   ) {}
-
+  //hello
   private events: Event[]; /*  = [
     new Event(
       'Java Script Patterns',
