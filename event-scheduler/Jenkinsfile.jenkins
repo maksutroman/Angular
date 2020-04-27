@@ -54,14 +54,14 @@ pipeline  {
         //        '''
         //    }
        // }
-       // stage("docker run") {
-       //     steps {
-        //        echo " ============== starting chatterbox =================="
-       //         sh '''
-        //        docker run -d --restart=always --name angular-event-scheduler -p 3000:3000 maksutroman/angular-event-scheduler
-        //        '''
-        //    }
-       // }
+        stage("docker run") {
+            steps {
+                echo " ============== starting angular-event-scheduler =================="
+               sh '''
+                docker run -d --restart=always --name angular-event-scheduler -p 80:4200 maksutroman/angular-event-scheduler
+                '''
+            }
+          }
         // stage("Deploy to stage server") {
         //     steps {
         //         echo " ============== Running playbook =================="
