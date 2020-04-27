@@ -37,14 +37,15 @@ pipeline  {
                 '''
             }
         }
-        stage("docker stop") {
-            steps {
-                echo " ============== stoping all images =================="
-                sh '''
-                docker stop angular-event-scheduler
-                '''
-            }
-        } 
+        //kkkk
+        //stage("docker stop") {
+        //    steps {
+        //        echo " ============== stoping all images =================="
+        //        sh '''
+        //        docker stop angular-event-scheduler
+        //        '''
+        //    }
+        //} 
         //stage("docker remove") {
         //    steps {
         //        echo " ============== removing all docker containers =================="
