@@ -15,7 +15,7 @@ pipeline  {
             steps {
                 echo 'Creating docker image ...'
                 dir('.'){
-                    sh "docker build -t maksutroman/angular-event-scheduler event-scheduler . "
+                    sh "docker build -t maksutroman/angular-event-scheduler . "
                 }
             }
         }
