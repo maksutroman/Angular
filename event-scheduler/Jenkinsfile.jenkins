@@ -37,28 +37,28 @@ pipeline  {
                 '''
             }
         }
-        //kkkk
-        //stage("docker stop") {
-        //    steps {
-        //        echo " ============== stoping all images =================="
-        //        sh '''
-        //        docker stop angular-event-scheduler
-        //        '''
-        //    }
-        //} 
-        //stage("docker remove") {
-        //    steps {
-        //        echo " ============== removing all docker containers =================="
-        //        sh '''
-        //        docker rm angular-event-scheduler
-        //        '''
-        //    }
-       // }
+        
+        stage("docker stop") {
+            steps {
+               echo " ============== stoping all images =================="
+                sh '''
+                docker stop event-scheduler
+                '''
+            }
+        } 
+        stage("docker remove") {
+            steps {
+                echo " ============== removing all docker containers =================="
+                sh '''
+                docker rm event-scheduler
+               '''
+            }
+        }
         stage("docker run") {
             steps {
                 echo " ============== starting angular-event-scheduler =================="
                sh '''
-                docker run -d --restart=always --name angular-event-scheduler -p 80:4200 maksutroman/angular-event-scheduler
+                docker run -d --restart=always --name event-scheduler -p 80:4200 maksutroman/angular-event-scheduler
                 '''
             }
           }
