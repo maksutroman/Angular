@@ -2,7 +2,7 @@ FROM node:latest
 
 MAINTAINER maksutroman
 
-COPY . /var/www
+COPY event-scheduler/. /var/www
 WORKDIR /var/www
 
 RUN npm install -g @angular/cli
